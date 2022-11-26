@@ -1,6 +1,8 @@
 package com.example.attempt2java;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -31,45 +33,57 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         pagenameTextView = findViewById(R.id.pagename);
 
-        // creating a client
-        OkHttpClient okHttpClient = new OkHttpClient();
-
         // nextInt is normally exclusive of the top value,
         // so add 1 to make it inclusive
-        int randomNum = ThreadLocalRandom.current().nextInt(2, 6);
+        // int randomNum = ThreadLocalRandom.current().nextInt(0, 3);
 
-        // creating a form that passes parameters
-        RequestBody formbody = new FormBody.Builder().add("value", String.valueOf(randomNum)).build();
-
-        // building a request
-        Request request = new Request.Builder().url("http://192.168.1.76:5000/debug").post(formbody).build();
-
-        // making call asynchronously
-        okHttpClient.newCall(request).enqueue(new Callback() {
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            // called if server is unreachable
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                runOnUiThread(new Runnable() {
+            public void onClick(View v) {
+                // nextInt is normally exclusive of the top value,
+                // so add 1 to make it inclusive
+                int randomNum = ThreadLocalRandom.current().nextInt(0, 3);
+
+                // creating a client
+                OkHttpClient okHttpClient = new OkHttpClient();
+
+                // creating a form that passes parameters
+                RequestBody formbody = new FormBody.Builder().add("value", String.valueOf(randomNum)).build();
+
+                // building a request
+                Request request = new Request.Builder().url("http://192.168.1.76:5000/classify").post(formbody).build();
+
+                // making call asynchronously
+                okHttpClient.newCall(request).enqueue(new Callback() {
                     @Override
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "server down", Toast.LENGTH_SHORT).show();
-                        pagenameTextView.setText("error connecting to the server");
+                    // called if server is unreachable
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(MainActivity.this, "server down", Toast.LENGTH_SHORT).show();
+                                pagenameTextView.setText("error connecting to the server");
+                            }
+                        });
+                    }
+
+                    @Override
+                    // called if we get a
+                    // response from the server
+                    public void onResponse(
+                            @NotNull Call call,
+                            @NotNull Response response)
+                            throws IOException {pagenameTextView.setText(response.body().string());
+                        //Intent intent = new Intent(MainActivity.this, DummyActivity.class);
+                        //startActivity(intent);
+                        //finish();
                     }
                 });
             }
-
-            @Override
-            // called if we get a
-            // response from the server
-            public void onResponse(
-                    @NotNull Call call,
-                    @NotNull Response response)
-                    throws IOException {pagenameTextView.setText(response.body().string());
-                    //Intent intent = new Intent(MainActivity.this, DummyActivity.class);
-                    //startActivity(intent);
-                    //finish();
-            }
         });
+
+
     }
 }
 
