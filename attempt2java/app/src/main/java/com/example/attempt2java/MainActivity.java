@@ -3,6 +3,8 @@ package com.example.attempt2java;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+import java.util.concurrent.ThreadLocalRandom;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,8 +14,10 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,8 +34,15 @@ public class MainActivity extends AppCompatActivity {
         // creating a client
         OkHttpClient okHttpClient = new OkHttpClient();
 
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = ThreadLocalRandom.current().nextInt(2, 6);
+
+        // creating a form that passes parameters
+        RequestBody formbody = new FormBody.Builder().add("value", String.valueOf(randomNum)).build();
+
         // building a request
-        Request request = new Request.Builder().url("http://10.43.65.250:5000/").build();
+        Request request = new Request.Builder().url("http://192.168.1.76:5000/debug").post(formbody).build();
 
         // making call asynchronously
         okHttpClient.newCall(request).enqueue(new Callback() {
@@ -54,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
                     @NotNull Call call,
                     @NotNull Response response)
                     throws IOException {pagenameTextView.setText(response.body().string());
+                    //Intent intent = new Intent(MainActivity.this, DummyActivity.class);
+                    //startActivity(intent);
+                    //finish();
             }
         });
     }
 }
+
