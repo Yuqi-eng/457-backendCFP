@@ -1,0 +1,4 @@
+#Fri Mar 03 14:31:44 PST 2023
+base.0=/Users/oliviamelaniputri/Downloads/NearFallAlgorithm/TestNFD_ert_rtw/TestNFD/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
