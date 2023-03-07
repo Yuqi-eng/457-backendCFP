@@ -5,6 +5,10 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.Toast;
 import android.util.Log;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import android.content.res.Configuration;
 import androidx.core.app.ActivityCompat;
@@ -21,6 +25,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.widget.TextView;
 import java.util.Hashtable;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class TestNFD2 extends AppCompatActivity implements SensorEventListener, OnFragmentInteractionListener {
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -207,56 +212,6 @@ public class TestNFD2 extends AppCompatActivity implements SensorEventListener, 
         return mAccelerometerData;
     }
 
-    public void displayText(int id, byte[] data, byte[] format) {
-        String formatString = new String(format);
-        String toDisplay = String.format(formatString, data[0]);
-        if (data.length > 1) {
-            for (int i = 1; i < data.length; i++)
-                toDisplay += "\n" + String.format(formatString, data[i]);
-        }
-        updateTextViewById(id, toDisplay);
-    }
-
-    public void displayText(int id, short[] data, byte[] format) {
-        String formatString = new String(format);
-        String toDisplay = String.format(formatString, data[0]);
-        if (data.length > 1) {
-            for (int i = 1; i < data.length; i++)
-                toDisplay += "\n" + String.format(formatString, data[i]);
-        }
-        updateTextViewById(id, toDisplay);
-    }
-
-    public void displayText(int id, int[] data, byte[] format) {
-        String formatString = new String(format);
-        String toDisplay = String.format(formatString, data[0]);
-        if (data.length > 1) {
-            for (int i = 1; i < data.length; i++)
-                toDisplay += "\n" + String.format(formatString, data[i]);
-        }
-        updateTextViewById(id, toDisplay);
-    }
-
-    public void displayText(int id, long[] data, byte[] format) {
-        String formatString = new String(format);
-        String toDisplay = String.format(formatString, data[0]);
-        if (data.length > 1) {
-            for (int i = 1; i < data.length; i++)
-                toDisplay += "\n" + String.format(formatString, data[i]);
-        }
-        updateTextViewById(id, toDisplay);
-    }
-
-    public void displayText(int id, float[] data, byte[] format) {
-        String formatString = new String(format);
-        String toDisplay = String.format(formatString, data[0]);
-        if (data.length > 1) {
-            for (int i = 1; i < data.length; i++)
-                toDisplay += "\n" + String.format(formatString, data[i]);
-        }
-        updateTextViewById(id, toDisplay);
-    }
-
     public void displayText(int id, double[] data, byte[] format) {
         String formatString = new String(format);
         String toDisplay = String.format(formatString, data[0]);
@@ -275,6 +230,17 @@ public class TestNFD2 extends AppCompatActivity implements SensorEventListener, 
                     textViews.get(id).setText(finalStringToDisplay);
                 } catch (Exception ex) {
                     Log.e("TestNFD2.updateTextViewById", ex.getLocalizedMessage());
+                }
+                String FILENAME = "data_log.csv";
+                File file = getBaseContext().getFileStreamPath( FILENAME );
+                Toast.makeText(getBaseContext(), "hey", Toast.LENGTH_LONG).show();
+                try{
+                    FileOutputStream out = getBaseContext().openFileOutput( FILENAME, Context.MODE_APPEND );
+                    out.write( finalStringToDisplay.getBytes() );
+                    out.close();
+                    Toast.makeText(getBaseContext(), "Entry Saved!", Toast.LENGTH_LONG).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         });
