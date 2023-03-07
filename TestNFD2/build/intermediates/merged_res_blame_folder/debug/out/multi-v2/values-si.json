@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/oliviamelaniputri/Downloads/NearFallAlgorithm/TestNFD2_ert_rtw/TestNFD2/build/intermediates/incremental/mergeDebugResources/merged.dir/values-si/values-si.xml",
+            "outputFile": "/home/uki/Desktop/capstone/457-backendCFP/TestNFD2/build/intermediates/incremental/mergeDebugResources/merged.dir/values-si/values-si.xml",
             "map": [
                 {
-                    "source": "/Users/oliviamelaniputri/.gradle/caches/transforms-3/1a13e9093b391f2d86e34d05488e1a8f/transformed/core-1.0.0/res/values-si/values-si.xml",
+                    "source": "/home/uki/.gradle/caches/transforms-3/1a13e9093b391f2d86e34d05488e1a8f/transformed/core-1.0.0/res/values-si/values-si.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/oliviamelaniputri/.gradle/caches/transforms-3/abbc21f200fcde2dc65301a6a2aa31f2/transformed/appcompat-1.0.0/res/values-si/values-si.xml",
+                    "source": "/home/uki/.gradle/caches/transforms-3/abbc21f200fcde2dc65301a6a2aa31f2/transformed/appcompat-1.0.0/res/values-si/values-si.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

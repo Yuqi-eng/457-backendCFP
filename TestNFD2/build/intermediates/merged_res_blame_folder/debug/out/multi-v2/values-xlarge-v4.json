@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/oliviamelaniputri/Downloads/NearFallAlgorithm/TestNFD2_ert_rtw/TestNFD2/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "/home/uki/Desktop/capstone/457-backendCFP/TestNFD2/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "/Users/oliviamelaniputri/.gradle/caches/transforms-3/abbc21f200fcde2dc65301a6a2aa31f2/transformed/appcompat-1.0.0/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "source": "/home/uki/.gradle/caches/transforms-3/abbc21f200fcde2dc65301a6a2aa31f2/transformed/appcompat-1.0.0/res/values-xlarge-v4/values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
