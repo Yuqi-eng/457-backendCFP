@@ -1,0 +1,15 @@
+com/example/TestNFD3_sensordatastorage/InfoFragment.java
+ com.example.TestNFD3_sensordatastorage.InfoFragment
+com/example/TestNFD3_sensordatastorage/OnFragmentInteractionListener.java
+ com.example.TestNFD3_sensordatastorage.OnFragmentInteractionListener
+com/example/TestNFD3_sensordatastorage/BuildConfig.java
+ com.example.TestNFD3_sensordatastorage.BuildConfig
+com/example/TestNFD3_sensordatastorage/AppFragment.java
+ com.example.TestNFD3_sensordatastorage.AppFragment
+com/example/TestNFD3_sensordatastorage/TestNFD3_sensordatastorage.java
+ com.example.TestNFD3_sensordatastorage.TestNFD3_sensordatastorage
+ com.example.TestNFD3_sensordatastorage.TestNFD3_sensordatastorage$1
+ com.example.TestNFD3_sensordatastorage.TestNFD3_sensordatastorage$2
+ com.example.TestNFD3_sensordatastorage.TestNFD3_sensordatastorage$3
+com/example/TestNFD3_sensordatastorage/SectionsPagerAdapter.java
+ com.example.TestNFD3_sensordatastorage.SectionsPagerAdapter

@@ -1,0 +1,4 @@
+#Thu Mar 16 11:26:24 PDT 2023
+base.0=/Users/oliviamelaniputri/Downloads/NearFallAlgorithm/TestNFD3_sensordatastorage_ert_rtw/TestNFD3_sensordatastorage/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
